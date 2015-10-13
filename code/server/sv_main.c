@@ -761,7 +761,7 @@ static void SVC_RemoteCommand( netadr_t from, msg_t *msg ) {
 			cmd_aux++;
 		
 		Q_strcat( remaining, sizeof(remaining), cmd_aux);
-		
+        Com_Printf(remaining);
 		Cmd_ExecuteString (remaining);
 
 	}
