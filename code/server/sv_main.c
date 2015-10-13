@@ -760,11 +760,12 @@ static void SVC_RemoteCommand( netadr_t from, msg_t *msg ) {
 			cmd_aux++;
 		
 		Q_strcat( remaining, sizeof(remaining), cmd_aux);
-        Com_Printf ("Rcon from %s: %s\n", NET_AdrToString (from), remaining);
 		Cmd_ExecuteString (remaining);
-
+        Com_EndRedirect ();
+        Com_Printf ("Rcon from %s: %s\n", NET_AdrToString (from), remaining );
+        return;
 	}
-
+    
 	Com_EndRedirect ();
 }
 
