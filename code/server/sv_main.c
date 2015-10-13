@@ -733,7 +733,6 @@ static void SVC_RemoteCommand( netadr_t from, msg_t *msg ) {
 		Com_Printf ("Bad rcon from %s: %s\n", NET_AdrToString (from), Cmd_ArgsFrom(2) );
 	} else {
 		valid = qtrue;
-		Com_Printf ("Rcon from %s: %s\n", NET_AdrToString (from), Cmd_ArgsFrom(2) );
 	}
 
 	// start redirecting all print outputs to the packet
@@ -761,7 +760,7 @@ static void SVC_RemoteCommand( netadr_t from, msg_t *msg ) {
 			cmd_aux++;
 		
 		Q_strcat( remaining, sizeof(remaining), cmd_aux);
-        Com_Printf("Executes command: %s\n", remaining);
+        Com_Printf ("Rcon from %s: %s\n", NET_AdrToString (from), remaining);
 		Cmd_ExecuteString (remaining);
 
 	}
