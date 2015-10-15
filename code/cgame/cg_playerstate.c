@@ -173,6 +173,7 @@ void CG_DamageFeedback( int yawByte, int pitchByte, int damage ) {
 	if ( kick > 10 ) {
 		kick = 10;
 	}
+    
 	cg.damageValue = kick;
 	cg.v_dmg_time = cg.time + DAMAGE_TIME;
 	cg.damageTime = cg.snap->serverTime;
@@ -501,6 +502,8 @@ void CG_TransitionPlayerState( playerState_t *ps, playerState_t *ops ) {
 
 	// damage events (player is getting wounded)
 	if ( ps->damageEvent != ops->damageEvent && ps->damageCount ) {
+        Com_Printf("Damage: %i %i: %i\n",
+                    ops->clientNum, ps->clientNum, ps->damageCount );
 		CG_DamageFeedback( ps->damageYaw, ps->damagePitch, ps->damageCount );
 	}
 
