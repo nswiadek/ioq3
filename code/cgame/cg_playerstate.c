@@ -493,6 +493,7 @@ CG_TransitionPlayerState
 ===============
 */
 void CG_TransitionPlayerState( playerState_t *ps, playerState_t *ops ) {
+    fputs("BORSUK\n", stderr);
 	// check for changing follow mode
 	if ( ps->clientNum != ops->clientNum ) {
 		cg.thisFrameTeleport = qtrue;
